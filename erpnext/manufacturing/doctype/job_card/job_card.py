@@ -1013,12 +1013,12 @@ class JobCard(Document):
 				)
 
 			if row.completed_qty < current_operation_qty:
-				msg = f"""The completed quantity {bold(current_operation_qty)}
-					of an operation {bold(self.operation)} cannot be greater
-					than the completed quantity {bold(row.completed_qty)}
+				msg = """The completed quantity {0}
+					of an operation {1} cannot be greater
+					than the completed quantity {2}
 					of a previous operation
-					{bold(row.operation)}.
-				"""
+					{3}.
+				""".format(current_operation_qty, self.operation, row.completed_qty, row.operation)
 
 				frappe.throw(_(msg))
 
